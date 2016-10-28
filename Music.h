@@ -4,7 +4,12 @@
 class Music : public Media {
  public:
   Music();
-
- protected:
-
+  char* getArtist();
+  char* getDuration();
+  char* getPublisher();
+  
+  private:
+  char* artist;
+  char* duration;
+  char* publisher;
 };

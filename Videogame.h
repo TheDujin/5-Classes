@@ -4,7 +4,11 @@
 class Videogame : public Media {
  public:
   Videogame();
-
- protected:
-
+  char* getPublisher();
+  char* getRating();
+  
+  
+ private:
+  char* publisher;
+  char* rating;
 };

@@ -10,3 +10,18 @@ char* Media::getTitle() {
 char* Media::getYear() {
   return year;
 }
+char* Media::getDirector() {
+  return "none";
+}
+char* Media::getDuration() {
+  return "none";
+}
+char* Media::getRating() {
+  return "none";
+}
+char* Media::getArtist() {
+  return "none";
+}
+char* Media::getPublisher() {
+  return "none";
+}

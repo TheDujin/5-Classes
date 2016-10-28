@@ -9,6 +9,11 @@ class Media {
  public:
   char* getTitle();
   char* getYear();
+  char* getDirector();
+  char* getDuration();
+  char* getRating();
+  char* getArtist();
+  char* getPublisher();
  protected:
   char* title;
   char* year;

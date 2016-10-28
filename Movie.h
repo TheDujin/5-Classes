@@ -4,8 +4,12 @@
 class Movie : public Media {
  public:
   Movie();
+  char* getDirector();
+  char* getDuration();
+  char* getRating();
 
-
- protected:
-
+ private:
+  char* director;
+  char* duration;
+  char* rating;
 };
