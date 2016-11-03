@@ -3,7 +3,7 @@
 
 class Videogame : public Media {
  public:
-  Videogame();
+  Videogame(char* newTitle, int newYear, char* newPublisher, char* newRating);
   char* getPublisher();
   char* getRating();
   

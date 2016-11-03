@@ -1,10 +1,12 @@
 #include <iostream>
 #include "Videogame.h"
 
-Videogame::Videogame() {
+Videogame::Videogame(char* newTitle, int newYear, char* newPublisher, char* newRating) {
   cout << "Videogame constructor called" << endl;
-
-  year = 1965;
+  title = newTitle;
+  year = newYear;
+  publisher = newPublisher;
+  rating = newRating;
 }
 
 char* Videogame::getPublisher() {

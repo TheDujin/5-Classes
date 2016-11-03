@@ -2,10 +2,13 @@
 #include "Movie.h"
 using namespace std;
 
-Movie::Movie() {
+Movie::Movie(char* newTitle, int newYear, char* newDirector, char* newDuration, char* newRating) {
   cout << "Movie constructor called" << endl;
-  
-  year = 1918;
+  title = newTitle;
+  year = newYear;
+  director = newDirector;
+  duration = newDuration;
+  rating = newRating;
 }
 
 char* Movie::getDirector() {

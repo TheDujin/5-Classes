@@ -3,7 +3,7 @@
 
 class Movie : public Media {
  public:
-  Movie();
+  Movie(char* newTitle, int newYear, char* newDirector, char* newDuration, char* newRating);
   char* getDirector();
   char* getDuration();
   char* getRating();
