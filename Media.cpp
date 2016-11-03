@@ -7,7 +7,7 @@ using namespace std;
 char* Media::getTitle() {
   return title;
 }
-char* Media::getYear() {
+int Media::getYear() {
   return year;
 }
 char* Media::getDirector() {

@@ -3,7 +3,7 @@
 
 class Music : public Media {
  public:
-  Music();
+  Music(char* newTitle, int newYear, char* newArtist, char* newDuration, char* newPublisher);
   char* getArtist();
   char* getDuration();
   char* getPublisher();

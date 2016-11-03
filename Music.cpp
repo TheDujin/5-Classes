@@ -1,10 +1,13 @@
 #include <iostream>
 #include "Music.h"
 
-Music::Music() {
+Music::Music(char* newTitle, int newYear, char* newArtist, char* newDuration, char* newPublisher) {
   cout << "Music constructor called" << endl;
-
-  year = "1960's";
+  title = newTitle;
+  year = newYear;
+  artist = newArtist;
+  duration = newDuration;
+  publisher = newPublisher;
 }
 
 char* Music::getArtist() {

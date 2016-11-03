@@ -5,7 +5,7 @@ using namespace std;
 Movie::Movie() {
   cout << "Movie constructor called" << endl;
   
-  year = "A long time ago in a galaxy far, far away...";
+  year = 1918;
 }
 
 char* Movie::getDirector() {

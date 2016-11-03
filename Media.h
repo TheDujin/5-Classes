@@ -8,7 +8,7 @@ using namespace std;
 class Media {
  public:
   char* getTitle();
-  char* getYear();
+  int getYear();
   char* getDirector();
   char* getDuration();
   char* getRating();
@@ -16,7 +16,7 @@ class Media {
   char* getPublisher();
  protected:
   char* title;
-  char* year;
+  int year;
 };
 
 #endif

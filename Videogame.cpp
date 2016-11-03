@@ -4,7 +4,7 @@
 Videogame::Videogame() {
   cout << "Videogame constructor called" << endl;
 
-  year = "200X";
+  year = 1965;
 }
 
 char* Videogame::getPublisher() {
