@@ -13,6 +13,7 @@ void searchMedia(vector <Media*>* listPtr);
 int main() {
   vector <Media*> mediaList;
   vector <Media*>* listPtr;
+  listPtr = &mediaList;
   //Media* movie = new Movie();
   //cout << movie->getYear();
   bool isRunning = true;
@@ -30,9 +31,11 @@ int main() {
     if (strcmp(input, add) == 0) {
       cout << "Adding..." << endl;
       mediaList.push_back(addMedia());
+      for (int i = 0; i < mediaList.size(); i++)
+	cout << mediaList.at(i)->getTitle();
     }
     else if (strcmp(input, search) == 0) {
-      cout << "Searching..." << endl;
+      searchMedia(listPtr);
       
     }
     else if (strcmp(input, quit) == 0) {
@@ -51,11 +54,51 @@ int main() {
 
 
 Media* addMedia() {
+  
   Media* newMedia = new Music("Test", 2000, "Autistic Beiber", "69:69", "Autistic Guy");
   return newMedia;
 }
 
-void searchMedia(vector <Media*> *) {
-
+void searchMedia(vector <Media*> * listPtr) {
+  char input[81];
+  bool valid = false;
+  const char title[] = "TITLE";
+  const char year[] = "YEAR";
+  while (!valid) {
+    for (int i = 0; i < 81; i++)
+      input[i] = '\0';
+    cout << "Would you like to search by TITLE or YEAR?" << endl << "?: ";
+    cin >> input;
+    cin.ignore();
+    if (strcmp(input, title) == 0) {
+      valid = true;
+      cout << "Please enter the title. Be careful about capitals!" << endl << "Title: ";
+      for (int i = 0; i < 81; i++)
+	input[i] = '\0';
+      cin >> input;
+      cin.ignore();
+      cout << "Searching..." << endl;
+      for (int i = 0; i < listPtr->size(); i++) {
+	if (strcmp(listPtr->at(i)->getTitle(), input) == 0)
+	  cout << "Found one! (DEBUG title)" << endl;
+      }
+    }
+    else if (strcmp(input, year) == 0) {
+      valid = true;
+      cout << "Please enter the year, in format YYYY" << endl << "\
+Year: ";
+      int intInput = 0;
+      cin >> intInput;
+      cin.ignore();
+      cout << "Searching..." << endl;
+      for (int i = 0; i < listPtr->size(); i++) {
+	if (listPtr->at(i)->getYear() == intInput)
+	  cout << "Found one! (DEBUG year)" << endl;
+      }
+    }
+    else {
+      cout << "That doesn't seem to be \"TITLE\" or \"YEAR\". Please check your capitalization and spelling and try again." << endl;
+    }
+  }
   return;
 }
