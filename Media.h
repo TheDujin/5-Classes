@@ -17,6 +17,7 @@ class Media {
  protected:
   char* title;
   int year;
+  int ID;
 };
 
 #endif

@@ -2,6 +2,7 @@
 #include "Movie.h"
 using namespace std;
 
+const int MOVIE = -1;
 Movie::Movie(char* newTitle, int newYear, char* newDirector, char* newDuration, char* newRating) {
   cout << "Movie constructor called" << endl;
   title = newTitle;
@@ -9,6 +10,7 @@ Movie::Movie(char* newTitle, int newYear, char* newDirector, char* newDuration, 
   director = newDirector;
   duration = newDuration;
   rating = newRating;
+  ID = MOVIE;
 }
 
 char* Movie::getDirector() {

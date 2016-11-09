@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Music.h"
+using namespace std;
 
+const int MUSIC = 0;
 Music::Music(char* newTitle, int newYear, char* newArtist, char* newDuration, char* newPublisher) {
   cout << "Music constructor called" << endl;
   title = newTitle;
@@ -8,6 +10,7 @@ Music::Music(char* newTitle, int newYear, char* newArtist, char* newDuration, ch
   artist = newArtist;
   duration = newDuration;
   publisher = newPublisher;
+  ID = MUSIC;
 }
 
 char* Music::getArtist() {
