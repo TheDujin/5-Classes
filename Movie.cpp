@@ -4,7 +4,6 @@ using namespace std;
 
 const int MOVIE = -1;
 Movie::Movie(char* newTitle, int newYear, char* newDirector, char* newDuration, char* newRating) {
-  cout << "Movie constructor called" << endl;
   title = newTitle;
   year = newYear;
   director = newDirector;

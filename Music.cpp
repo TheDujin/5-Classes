@@ -4,7 +4,6 @@ using namespace std;
 
 const int MUSIC = 0;
 Music::Music(char* newTitle, int newYear, char* newArtist, char* newDuration, char* newPublisher) {
-  cout << "Music constructor called" << endl;
   title = newTitle;
   year = newYear;
   artist = newArtist;
@@ -21,4 +20,9 @@ char* Music::getDuration() {
 }
 char* Music::getPublisher() {
   return publisher;
+}
+void Music::printMedia() {
+  cout << "Found music!" << endl << "Title: " << title << endl << "Year: " << year << endl;
+  cout << "Artist: " << artist << endl << "Duration: " << duration << endl;
+  cout << "Publisher: " << publisher << endl;
 }

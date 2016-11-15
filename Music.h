@@ -7,6 +7,7 @@ class Music : public Media {
   char* getArtist();
   char* getDuration();
   char* getPublisher();
+  void printMedia();
   
   private:
   char* artist;

@@ -14,6 +14,8 @@ class Media {
   char* getRating();
   char* getArtist();
   char* getPublisher();
+  int getID();
+  void printMedia();
  protected:
   char* title;
   int year;

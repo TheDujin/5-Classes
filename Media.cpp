@@ -25,3 +25,9 @@ char* Media::getArtist() {
 char* Media::getPublisher() {
   return "none";
 }
+int Media::getID() {
+  return ID;
+}
+void Media::printMedia() {
+  return;
+}

@@ -6,6 +6,7 @@ class Videogame : public Media {
   Videogame(char* newTitle, int newYear, char* newPublisher, char* newRating);
   char* getPublisher();
   char* getRating();
+  void printMedia();
   
   
  private:
