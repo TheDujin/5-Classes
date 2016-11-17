@@ -21,3 +21,8 @@ char* Movie::getDuration() {
 char* Movie::getRating() {
   return rating;
 }
+void Movie::printMedia() {
+  cout << endl << "Found movie!" << endl << "Title: " << title << endl << "Year: " << year << endl;
+  cout << "Director: " << director << endl << "Duration: " << duration << endl;
+  cout << "Rating: " << rating << endl;
+}

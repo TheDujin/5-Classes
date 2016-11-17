@@ -22,7 +22,7 @@ char* Music::getPublisher() {
   return publisher;
 }
 void Music::printMedia() {
-  cout << "Found music!" << endl << "Title: " << title << endl << "Year: " << year << endl;
+  cout << endl << "Found music!" << endl << "Title: " << title << endl << "Year: " << year << endl;
   cout << "Artist: " << artist << endl << "Duration: " << duration << endl;
   cout << "Publisher: " << publisher << endl;
 }

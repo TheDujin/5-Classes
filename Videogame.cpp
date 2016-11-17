@@ -18,3 +18,7 @@ char* Videogame::getRating() {
   return rating;
 }
 
+void Videogame::printMedia() {
+  cout << endl << "Found videogame!" << endl << "Title: " << title << endl << "Year: " << year << endl;
+  cout << "Publisher: " << publisher << endl << "Rating: " << rating << endl;
+}

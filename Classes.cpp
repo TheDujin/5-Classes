@@ -9,6 +9,7 @@
 using namespace std;
 Media* addMedia();
 void searchMedia(vector <Media*>* listPtr);
+void deleteMedia();
 
 const int MOVIE = -1;
 const int MUSIC = 0;
@@ -24,21 +25,24 @@ int main() {
   const char add[] = "ADD";
   const char search[] = "SEARCH";
   const char quit[] = "QUIT";
+  const char del[] = "DELETE";
   char input[81];
   while (isRunning) {
     for (int i = 0; i < 81; i++)
       input[i] = '\0';
-    cout << "Please use the commands ADD, SEARCH, and QUIT." << endl << "Input: ";
+    cout << "Please use the commands ADD, DELETE, SEARCH, and QUIT." << endl << "Input: ";
     cin >> input;
     cin.ignore();
     if (strcmp(input, add) == 0) {
       cout << "Adding..." << endl;
       mediaList.push_back(addMedia());
-      for (int i = 0; i < mediaList.size(); i++) {
-	cout << mediaList.at(i)->getTitle();
-	cout << mediaList.at(i)->getYear();
-      }
     }
+    else if (strcmp(input, del) == 0) {
+	if (mediaList.size() < 1)
+	  cout << "There isn't anything to delete. Maybe you should \"ADD\" something first?" << endl;
+	else
+	  deleteMedia();
+      }
     else if (strcmp(input, search) == 0) {
       searchMedia(listPtr);
       
@@ -168,6 +172,10 @@ Media* addMedia() {
   
 }
 
+void deleteMedia() {
+  return;
+}
+
 void searchMedia(vector <Media*> * listPtr) {
   char input[81];
   bool valid = false;
@@ -187,24 +195,46 @@ void searchMedia(vector <Media*> * listPtr) {
       cin.get(input, 80);
       cin.ignore();
       cout << "Searching..." << endl;
+      bool foundOne = false;
       for (int i = 0; i < listPtr->size(); i++) {
 	if (strcmp(listPtr->at(i)->getTitle(), input) == 0) {
-	  //cout << "Found one! (DEBUG title)" << endl;
+	  foundOne = true;
+	  if (listPtr->at(i)->getID() == MOVIE)
+	    ((Movie*)listPtr->at(i))->printMedia();
+	  else if (listPtr->at(i)->getID() == MUSIC)
+	    ((Music*)listPtr->at(i))->printMedia();
+	  else if (listPtr->at(i)->getID() == VIDEOGAME)
+	    ((Videogame*)listPtr->at(i))->printMedia();
 	}
       }
+      if (!foundOne) {
+	cout << endl << "There were no results found." << endl;
+      }
+      cout << endl;
     }
     else if (strcmp(input, year) == 0) {
       valid = true;
-      cout << "Please enter the year, in format YYYY" << endl << "\
-Year: ";
+      cout << "Please enter the year, in format YYYY" << endl << "Year: ";
       int intInput = 0;
       cin >> intInput;
       cin.ignore();
       cout << "Searching..." << endl;
+      bool foundOne = false;
       for (int i = 0; i < listPtr->size(); i++) {
-	if (listPtr->at(i)->getYear() == intInput)
-	  cout << "Found one! (DEBUG year)" << endl;
+	if (listPtr->at(i)->getYear() == intInput) {
+	  foundOne = true;
+	  if (listPtr->at(i)->getID() == MOVIE)
+	    ((Movie*)listPtr->at(i))->printMedia();
+	  else if (listPtr->at(i)->getID() == MUSIC)
+	    ((Music*)listPtr->at(i))->printMedia();
+	  else if (listPtr->at(i)->getID() == VIDEOGAME)
+	    ((Videogame*)listPtr->at(i))->printMedia();
+	}
       }
+      if (!foundOne) {
+	cout << endl << "There were no results found." << endl;
+      }
+      cout << endl;
     }
     else {
       cout << "That doesn't seem to be \"TITLE\" or \"YEAR\". Please check your capitalization and spelling and try again." << endl;

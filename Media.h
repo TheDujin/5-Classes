@@ -9,11 +9,6 @@ class Media {
  public:
   char* getTitle();
   int getYear();
-  char* getDirector();
-  char* getDuration();
-  char* getRating();
-  char* getArtist();
-  char* getPublisher();
   int getID();
   void printMedia();
  protected:
