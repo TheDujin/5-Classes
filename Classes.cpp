@@ -127,7 +127,7 @@ Media* addMedia() {
       cin.get(artist, 80);
       cin.ignore();
       cout << artist;
-      cout << "Please enter the duration of the music in the format \"HH:MM\"." << endl << "Duration: ";
+      cout << "Please enter the duration of the music in the format \"MM:SS\"." << endl << "Duration: ";
       cin.get(duration, 80);
       cin.ignore();
       cout << duration;
