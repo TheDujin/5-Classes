@@ -176,7 +176,71 @@ Media* addMedia() {
 }
 
 void deleteMedia() {
+  char input[81];
+  bool valid = false;
+  const char title[] = "TITLE";
+  const char year[] = "YEAR";
+  while (!valid) {
+    for (int i = 0; i < 81; i++)
+      input[i] = '\0';
+    cout << "Would you like to search by TITLE or YEAR?" << endl << "?: ";
+    cin >> input;
+    cin.ignore();
+    if (strcmp(input, title) == 0) {
+      valid = true;
+      cout << "Please enter the title. Be careful about capitals!" << endl << "Title: ";
+      for (int i = 0; i < 81; i++)
+	input[i] = '\0';
+      cin.get(input, 80);
+      cin.ignore();
+      cout << "Searching..." << endl;
+      bool foundOne = false;
+      for (int i = 0; i < listPtr->size(); i++) {
+	if (strcmp(listPtr->at(i)->getTitle(), input) == 0) {
+	  foundOne = true;
+	  if (listPtr->at(i)->getID() == MOVIE)
+	    ((Movie*)listPtr->at(i))->printMedia();
+	  else if (listPtr->at(i)->getID() == MUSIC)
+	    ((Music*)listPtr->at(i))->printMedia();
+	  else if (listPtr->at(i)->getID() == VIDEOGAME)
+	    ((Videogame*)listPtr->at(i))->printMedia();
+	}
+      }
+      if (!foundOne) {
+	cout << endl << "There were no results found." << endl;
+      }
+      cout << endl;
+    }
+    else if (strcmp(input, year) == 0) {
+      valid = true;
+      cout << "Please enter the year, in format YYYY" << endl << "Year: ";
+      int intInput = 0;
+      cin >> intInput;
+      cin.ignore();
+      cout << "Searching..." << endl;
+      bool foundOne = false;
+      for (int i = 0; i < listPtr->size(); i++) {
+	if (listPtr->at(i)->getYear() == intInput) {
+	  foundOne = true;
+	  if (listPtr->at(i)->getID() == MOVIE)
+	    ((Movie*)listPtr->at(i))->printMedia();
+	  else if (listPtr->at(i)->getID() == MUSIC)
+	    ((Music*)listPtr->at(i))->printMedia();
+	  else if (listPtr->at(i)->getID() == VIDEOGAME)
+	    ((Videogame*)listPtr->at(i))->printMedia();
+	}
+      }
+      if (!foundOne) {
+	cout << endl << "There were no results found." << endl;
+      }
+      cout << endl;
+    }
+    else {
+      cout << "That doesn't seem to be \"TITLE\" or \"YEAR\". Please check your capitalization and spelling and try again." << endl;
+    }
+  }
   return;
+  
 }
 
 void searchMedia(vector <Media*> * listPtr) {
