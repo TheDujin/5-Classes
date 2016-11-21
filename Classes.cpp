@@ -44,7 +44,10 @@ int main() {
 	  deleteMedia();
       }
     else if (strcmp(input, search) == 0) {
-      searchMedia(listPtr);
+      if (mediaList.size() < 1)
+	cout << "There isn't anything to search for. Maybe you should \"ADD\" something first?" << endl;
+      else
+	searchMedia(listPtr);
       
     }
     else if (strcmp(input, quit) == 0) {
