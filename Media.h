@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string.h>
 
+//The .h file for the Media parent class. It outlines all the common methods and variables for all the media types.
 using namespace std;
 
 class Media {
