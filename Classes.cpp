@@ -7,7 +7,7 @@
 #include "Music.h"
 #include "Videogame.h"
 
-//#define DEBUG
+
 using namespace std;
 //Define functions
 Media* addMedia();
@@ -37,9 +37,9 @@ int main() {
     cin >> input;
     cin.ignore();
     if (strcasecmp(input, add) == 0) {
-      //#ifdef DEBUG
-      //cout << "Adding..." << endl;
-      //#endif
+#ifdef DEBUG
+      cout << "Adding..." << endl;
+#endif	
       mediaList.push_back(addMedia());
     }
     else if (strcasecmp(input, del) == 0) {
